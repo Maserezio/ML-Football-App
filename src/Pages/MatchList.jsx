@@ -8,15 +8,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-function Ger() {
+function MatchList(props) {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
-    axios.get('/v4/competitions/BL1/matches?matchday=11', {
-      headers: {
-        'X-Auth-Token': 'e81db08975554a52be0102c53ba95211',
-      }
-      }).then(res=>{
+    axios.get('https://football-ml-app-server.herokuapp.com/matches/',{
+        params: {
+          League: props.league,
+        }
+    }).then(res=>{
         console.log(res.data.matches)
         setData(res.data.matches)
       });
@@ -34,12 +34,11 @@ function Ger() {
 
       >
         {data.map(match =>
-              <Grid item xs={3}>
-                 <MatchCard match={match} key={match.id}/>
-              </Grid> 
-      )}
+            <Grid item xs={3}>
+                <MatchCard match={match} key={match.id}/>
+            </Grid> 
+        )}
       </Grid>
-
      <StickyFooter/>
     </Container>
     
@@ -47,4 +46,4 @@ function Ger() {
     );
 }
 
-export default Ger;
+export default MatchList;

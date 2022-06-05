@@ -13,11 +13,6 @@ import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 const pages = ['England', 'Germany', 'Spain', 'Italy', 'France'];
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   return (
     <AppBar position="static">
@@ -63,7 +58,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open Github">
               <IconButton onClick={()=> window.open("https://github.com/Maserezio", "_blank")} sx={{ p: 0 }}>
-                <Avatar alt="Github"/>       
+                <Avatar alt="Github" src="https://findicons.com/files/icons/2779/simple_icons/32/github_32_black.png"/>       
               </IconButton>
             </Tooltip>
           </Box>
