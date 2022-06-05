@@ -14,11 +14,11 @@ function Main() {
   const [data, setData] = useState([]);
 
   useEffect(()=>{ // на страницах лиг запросы отличаются
-    axios.get('https://api.football-data.org/v4/matches', {
-      headers: {
-        'X-Auth-Token': 'e81db08975554a52be0102c53ba95211',
-      }
-      }).then(res=>{
+    axios.get('https://football-ml-app-server.herokuapp.com/matches/',{
+        params: {
+          League: 'SA',
+        }
+    }).then(res=>{
         console.log(res.data.matches)
         setData(res.data.matches)
       });

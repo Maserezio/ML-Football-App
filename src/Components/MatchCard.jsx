@@ -15,7 +15,7 @@ function MatchCard(props){
   const [goals, setGoals] = useState([]);
 
   useEffect(()=>{ // на страницах лиг запросы отличаются
-    axios.get('http://127.0.0.1:8000/pred/', {
+    axios.get('https://football-ml-app-server.herokuapp.com/pred/', {
       params: {
         HomeTeam: props.match.homeTeam.shortName,
         AwayTeam: props.match.awayTeam.shortName,
